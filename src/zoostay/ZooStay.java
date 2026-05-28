@@ -10,11 +10,7 @@ package zoostay;
  */
 public class ZooStay {
 
-    /**
-     * @param args the command line arguments
-     */
-        
-        String[] ortschaft = {
+    String[] ortschaft = {
         "Eurasien",
         "Afrika",
         "Nordamerika",
@@ -23,5 +19,3 @@ public class ZooStay {
         "tropisches Zentrum",
         "Meereswelt"};
     }
-    
-
