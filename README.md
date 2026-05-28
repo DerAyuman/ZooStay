@@ -1,2 +1,2 @@
 # ZooStay
-Zoologisches Dingsbums
+Zoologie
