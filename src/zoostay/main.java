@@ -12,24 +12,9 @@ import java.util.Scanner;
 public class main {
 
     public static void main(String[] Args) {
-        Scanner scanner = new Scanner(System.in);
-        
-        
-        System.out.println("-------------------- \n"
-                + "Willkommen zu ZooStay \n"
-                + "--------------------");
-
-        System.out.println("Woher kommen Sie? \n"
-                + "1: Eurasien,  \n"
-                + "2: Afrika,  \n"
-                + "3: Nordamerika,  \n"
-                + "4: Lateinamerika, \n"
-                + "5: Australien und Ozeanien, \n"
-                + "6: tropisches Zentrum \n"
-                + "7: Meereswelt. ");
-        
-        int ortschaft = scanner.nextInt();
-        
+       Cost costs = new Cost();
+       costs.chooseContinent();
+       costs.chooseAnreise();
         
         
     }
