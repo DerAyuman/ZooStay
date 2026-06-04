@@ -16,26 +16,31 @@ public class Cost {
     private final Scanner scanner = new Scanner(System.in);
     private float totalPrice;
 
-    public void changeTotalPrice(float number) {
+    private void changeTotalPrice(float number) {
         this.totalPrice += number;
     }
+    
+
 
     public void chooseContinent() {
         System.out.println("""
-                Zu welchem Kontinent wollen Sie reisen?
-                1: Eurasien [500$]
-                2: Afrika [69$]
-                3: Nordamerika [800$]
-                4: Lateinamerika [299$]
-                5: Australien und Ozeanien [1099$]
-                6: tropisches Zentrum [12$]
-                7: Meereswelt [90$]
+                +======================================+
+                |         ZOO STAY TICKETS             |
+                +======================================+
+                | 1. Eurasien                  500 $   |
+                | 2. Afrika                     69 $   |
+                | 3. Nordamerika               800 $   |
+                | 4. Lateinamerika             299 $   |
+                | 5. Australien/Ozeanien      1099 $   |
+                | 6. Tropisches Zentrum         12 $   |
+                | 7. Meereswelt                 90 $   |
+                +======================================+
                 """);
 
-        System.out.print("Ihre Auswahl: ");
+        System.out.print("Ihre Resortwahl: ");
         int choice = scanner.nextInt();
 
-        //hardgecodede Werte, ich kriege ein Bimmel aber reicht aus, f damit float ist
+        //hardgecodede Werte, ich kriege ein Bimmel aber reicht aus
         float price = switch (choice) {
             case 1 ->
                 500f;
@@ -57,6 +62,23 @@ public class Cost {
             }
         };
 
+        changeTotalPrice(price);
+    }
+    
+    ////////
+    
+    public void chooseAnreise() {
+        System.out.println("Wollen Sie einen Parkplatz buchen? [1] Ja | [2] Nein ");
+        
+        float price = 0;
+        
+        int choice = scanner.nextInt();
+        
+        if (choice == 1) {
+            price = 25;
+        }
+        
+        System.out.println("Sie haben erfolgreich einen Parkplatz gebucht.");
         changeTotalPrice(price);
     }
 }
