@@ -44,3 +44,5 @@ Am Ende erhältst du eine übersichtliche Zusammenfassung deiner Buchung inklusi
 Erlebe Natur, Abenteuer und Entspannung an einem Ort!
 
 **Jetzt buchen und dein Abenteuer starten!**
+
+//Text wurde von KI geschrieben. Wir übernehmen keine Kosten bei falschen Informationen
