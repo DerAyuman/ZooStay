@@ -1,23 +1,15 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package zoostay;
 
 import java.util.Scanner;
 
-/**
- *
- * @author 14257017
- */
 public class main {
 
     public static void main(String[] args) {
-        
-        Scanner scanner = new Scanner(System.in);
-        Cost KOSTEN = new Cost(scanner);
 
-        // 1. Definition der fairen Preise in Dollar
+        Scanner scanner = new Scanner(System.in);
+        Cost kosten = new Cost(scanner);
+
+        // Preise
         final double PREIS_BABY = 10.00;
         final double PREIS_KIND = 45.00;
         final double PREIS_ERWACHSENER = 95.00;
@@ -42,29 +34,36 @@ public class main {
             alterArray[i] = scanner.nextInt();
         }
 
-        // 2. Kunde-Objekt erzeugen
+        // Kunde erzeugen
         Kunde neuerKunde = new Kunde(alterArray);
         neuerKunde.detailsAnzeigen();
 
-        // 3. Preiskalkulation über die neuen Getter-Methoden
+        // Kosten berechnen
         double kostenBabys = neuerKunde.getAnzahlBabys() * PREIS_BABY;
         double kostenKinder = neuerKunde.getAnzahlKinder() * PREIS_KIND;
         double kostenErwachsene = neuerKunde.getAnzahlErwachsene() * PREIS_ERWACHSENER;
+
         double gesamtKosten = kostenBabys + kostenKinder + kostenErwachsene;
-
-        KOSTEN.setTotalPrice(gesamtKosten);
-
-        // 4. Rechnung ausgeben
-        System.out.println("---------------------------------");
-        System.out.println("Endpreis inkl. Resort: $" + KOSTEN.getTotalPrice());
 
         System.out.println("\n=== Preiskalkulation (Zoo-Stay) ===");
         System.out.println("Kosten Babys:      $" + kostenBabys);
         System.out.println("Kosten Kinder:     $" + kostenKinder);
         System.out.println("Kosten Erwachsene: $" + kostenErwachsene);
         System.out.println("---------------------------------");
-        System.out.println("Gesamtpreis:       $" + gesamtKosten);
+        System.out.println("Zwischensumme:     $" + gesamtKosten);
 
-        KOSTEN.chooseContinent();
+        // Basispreis an Cost übergeben
+        kosten.setTotalPrice(gesamtKosten);
+
+        // Extras
+        kosten.chooseContinent();
+        kosten.chooseAnreise();
+
+        // Endpreis
+        System.out.println("\n=================================");
+        System.out.println("Endpreis inkl. Extras: $" + kosten.getTotalPrice());
+        System.out.println("=================================");
+
+        scanner.close();
     }
 }
