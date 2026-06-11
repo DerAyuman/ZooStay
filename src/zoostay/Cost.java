@@ -1,28 +1,31 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package zoostay;
 
 import java.util.Scanner;
 
-/**www
- *
- * @author 14257017
- */
 public class Cost {
 
+    private final Scanner scanner;
+    private double totalPrice;
 
-    private final Scanner scanner = new Scanner(System.in);
-    private float totalPrice;
-
-    private void changeTotalPrice(float number) {
-        this.totalPrice += number;
+    public Cost(Scanner scanner) {
+        this.scanner = scanner;
+        this.totalPrice = 0;
     }
-    
 
+    public void setTotalPrice(double totalPrice) {
+        this.totalPrice = totalPrice;
+    }
+
+    public double getTotalPrice() {
+        return totalPrice;
+    }
+
+    private void changeTotalPrice(double amount) {
+        totalPrice += amount;
+    }
 
     public void chooseContinent() {
+
         System.out.println("""
                 +======================================+
                 |         ZOO STAY TICKETS             |
@@ -31,56 +34,47 @@ public class Cost {
                 | 2. Afrika                     69 $   |
                 | 3. Nordamerika               800 $   |
                 | 4. Lateinamerika             299 $   |
-                | 5. Australien/Ozeanien      1099 $   |
+                | 5. Australien/Ozeanien      1099 $  |
                 | 6. Tropisches Zentrum         12 $   |
                 | 7. Meereswelt                 90 $   |
                 +======================================+
                 """);
 
-        System.out.print("Ihre Resortwahl: ");
+        System.out.print("Ihre Resortwahl (Zahl): ");
         int choice = scanner.nextInt();
 
-        //hardgecodede Werte, ich kriege ein Bimmel aber reicht aus
-        float price = switch (choice) {
-            case 1 ->
-                500f;
-            case 2 ->
-                69f;
-            case 3 ->
-                800f;
-            case 4 ->
-                299f;
-            case 5 ->
-                1099f;
-            case 6 ->
-                12f;
-            case 7 ->
-                90f;
+        double price = switch (choice) {
+            case 1 -> 500;
+            case 2 -> 69;
+            case 3 -> 800;
+            case 4 -> 299;
+            case 5 -> 1099;
+            case 6 -> 12;
+            case 7 -> 90;
             default -> {
                 System.out.println("Fehlerhafte Auswahl!");
-                yield 0f;
+                yield 0;
             }
         };
 
         changeTotalPrice(price);
+
+        System.out.println("Resort hinzugefügt: $" + price);
     }
-    
-    ////////
-    
+
     public void chooseAnreise() {
-        System.out.println("Wollen Sie einen Parkplatz buchen? [1] Ja | [2] Nein ");
-        
-        float price = 0;
-        
+
+        System.out.println("\nParkplatz buchen?");
+        System.out.println("[1] Ja (+25$)");
+        System.out.println("[2] Nein");
+
         int choice = scanner.nextInt();
-        
+
         if (choice == 1) {
-            price = 25;
+            changeTotalPrice(25);
+            System.out.println("Parkplatz erfolgreich gebucht.");
+        } else {
+            System.out.println("Kein Parkplatz gebucht.");
         }
-        
-        System.out.println("Sie haben erfolgreich einen Parkplatz gebucht.");
-        changeTotalPrice(price);
     }
 }
-
-
