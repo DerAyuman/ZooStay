@@ -64,6 +64,7 @@ public class main {
         System.out.println("Endpreis inkl. Extras: $" + kosten.getTotalPrice());
         System.out.println("=================================");
 
-        scanner.close();
+        neuerKunde.kassenzettelDrucken(kosten.getTotalPrice(), kosten.getGewaehltesResort(), kosten.isParkplatzGebucht());
+       
     }
 }
