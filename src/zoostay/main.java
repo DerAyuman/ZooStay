@@ -25,7 +25,7 @@ public class main {
         int[] alterArray = new int[anzahl];
 
         for (int i = 0; i < anzahl; i++) {
-            System.out.print("Bitte gib das Alter für Person " + (i + 1) + " ein: ");
+            System.out.print("Bitte gib das Alter der Person " + (i + 1) + " ein: ");
             alterArray[i] = scanner.nextInt();
         }
 
